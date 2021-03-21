@@ -35,9 +35,6 @@ namespace WindowsFormsApp1
         {
             Filters filter = new InvertFilter();
             backgroundWorker1.RunWorkerAsync(filter);
-            Bitmap resultImage = filter.processImage(image, backgroundWorker1);
-            pictureBox1.Image = resultImage;
-            pictureBox1.Refresh();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -65,6 +62,30 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             backgroundWorker1.CancelAsync();
+        }
+
+        private void размытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new BlurFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void размытиеПоГаусуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GaussianFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void чБToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GrayScale();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void сепияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GrayScale();
+            backgroundWorker1.RunWorkerAsync(filter);
         }
     }
 }
