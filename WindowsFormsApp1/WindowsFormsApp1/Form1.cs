@@ -84,7 +84,25 @@ namespace WindowsFormsApp1
 
         private void сепияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Filters filter = new GrayScale();
+            Filters filter = new SepFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void яркостьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new BrightFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void собеляToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new SobelFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void резкостьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new SharpnessFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
     }
