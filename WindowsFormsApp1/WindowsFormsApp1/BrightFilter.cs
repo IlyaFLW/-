@@ -7,18 +7,16 @@ using System.Drawing;
 
 namespace WindowsFormsApp1
 {
-    class GrayScale : Filters
+    class BrightFilter : Filters
     {
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
         {
             Color sourceColor = sourceImage.GetPixel(x, y);
-            int intensity = (int)(double)(sourceColor.R * 0.299) + (int)(double)(sourceColor.G * 0.587) + (int)(double)(sourceColor.B * 0.114);
-            Color resultColor = Color.FromArgb(intensity,
-                                               intensity,
-                                               intensity
+            Color resultColor = Color.FromArgb(Clamp(sourceColor.R + 40, 0, 255),
+                                               Clamp(sourceColor.G + 40, 0, 255),
+                                               Clamp(sourceColor.B + 40, 0, 255)
                                                );
             return resultColor;
         }
-
     }
 }
