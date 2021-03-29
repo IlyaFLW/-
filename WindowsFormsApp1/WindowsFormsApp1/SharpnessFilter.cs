@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
     {
         public SharpnessFilter()
         {
-            kernel = new float[,]{
+            kernel = new float[3,3]{
                 {0,-1,0},
                 {-1,5,-1},
                 {0,-1,0}
